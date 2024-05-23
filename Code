@@ -1,0 +1,176 @@
+#include "pch.h"
+#include <iostream>
+#include <cmath>
+#include <gtest/gtest.h>
+# define M_PI 3.14159265358979323846
+
+using namespace std;
+
+double SquareOfTheSum(double a, double b) {
+    return (a*a)+(2*a*b)+(b*b);
+}
+
+double ScuaredDifference(double a, double b) {
+    return (a*a)-(2*a*b)+(b*b);
+}
+
+double DifferenceOFSquares(double a, double b) {
+    return (a-b)*(a+b);
+}
+
+double SumOfCubes(double a, double b) {
+    return (a+b)*((a*a)-(a*b)+b);
+}
+
+double DifferenceOfCubes(double a, double b) {
+    return (a-b)*((a*a)+(a*b)+(b*b));
+}
+
+double CubeOfSum(double a, double b) {
+    return (a*a*a)+(3*a*a*b)+(3*a*b*b)+(b*b*b);
+}
+
+double DifferenceCube(double a, double b) {
+    return (a*a*a)-(3*a*a*b)+(3*a*b*b)-(b*b*b);
+}
+
+double AreaOfARectangle(double a, double b) {
+    return a*b;
+}
+
+double AreaOfATriangle(double a, double b) {
+    return 0.5*a*b;
+}
+
+double AreaOfACircle(double r) {
+    return M_PI*r*r;
+}
+
+// Unit tests
+
+TEST(SquareOfTheSum, PositiveValues) {
+    EXPECT_EQ(25, SquareOfTheSum(2, 3));
+    EXPECT_EQ(81, SquareOfTheSum(4, 5));
+}
+
+TEST(ScuaredDifference, PositiveValues) {
+    EXPECT_DOUBLE_EQ(1, ScuaredDifference(2, 3));
+    EXPECT_DOUBLE_EQ(1, ScuaredDifference(4, 5));
+}
+
+TEST(DifferenceOFSquares, PositiveValues) {
+    EXPECT_EQ(-5, DifferenceOFSquares(2, 3));
+    EXPECT_EQ(-9, DifferenceOFSquares(4, 5));
+}
+
+TEST(SumOfCubes, PositiveValues) {
+    EXPECT_DOUBLE_EQ(5, SumOfCubes(2, 3));
+    EXPECT_DOUBLE_EQ(9, SumOfCubes(4, 5));
+}
+
+TEST(DifferenceOfCubes, PositiveValues) {
+    EXPECT_EQ(-19, DifferenceOfCubes(2, 3));
+    EXPECT_EQ(-61, DifferenceOfCubes(4, 5));
+}
+
+TEST(CubeOfSum, PositiveValues) {
+    EXPECT_EQ(125, CubeOfSum(2, 3));
+    EXPECT_EQ(729, CubeOfSum(4, 5));
+}
+
+TEST(DifferenceCube, PositiveValues) {
+    EXPECT_DOUBLE_EQ(-1, DifferenceCube(2, 3));
+    EXPECT_DOUBLE_EQ(-1, DifferenceCube(4, 5));
+}
+
+TEST(AreaOfARectangle, PositiveValues) {
+    EXPECT_EQ(6, AreaOfARectangle(2, 3));
+    EXPECT_EQ(20, AreaOfARectangle(4, 5));
+}
+
+TEST(AreaOfATriangle, PositiveValues) {
+    EXPECT_DOUBLE_EQ(3, AreaOfATriangle(2, 3));
+    EXPECT_DOUBLE_EQ(10, AreaOfATriangle(4, 5));
+}
+
+TEST(AreaOfACircle, PositiveValues) {
+    EXPECT_DOUBLE_EQ(12.566370614359172, AreaOfACircle(2));
+    EXPECT_DOUBLE_EQ(28.274333882308138, AreaOfACircle(3));
+}
+
+
+int main(int argc, char** argv) {
+    setlocale(LC_ALL, "");
+    int n;
+    double a,b,r;
+
+    cout << "Выберите значение, которое нужно рассчитать:\n";
+    cout << "1. Квадрат суммы\n";
+    cout << "2. Квадрат разности\n";
+    cout << "3. Разность квадратов\n";
+    cout << "4. Сумма кубов\n";
+    cout << "5. Разность кубов\n";
+    cout << "6. Куб суммы\n";
+    cout << "7. Куб разности\n";
+    cout << "8. Площадь прямоугольника\n";
+    cout << "9. Площадь треугольника\n";
+    cout << "10. Площадь круга\n";
+    cout << "Введите номер: ";
+    cin >> n;
+
+    if (n == 1) {
+        cout << "Введите значение a и b: ";
+        cin >> a >> b;
+        cout << "Квадрат суммы: " << SquareOfTheSum(a, b) << endl;
+    }
+    if (n == 2) {
+        cout << "Введите значение a и b: ";
+        cin >> a >> b;
+        cout << "Квадрат разности: " << ScuaredDifference(a, b) << endl;
+    }
+    if (n == 3) {
+        cout << "Введите значение a и b: ";
+        cin >> a >> b;
+        cout << "Разность квадратов: " << DifferenceOFSquares(a, b) << endl;
+    }
+    if (n == 4) {
+        cout << "Введите значение a и b: ";
+        cin >> a >> b;
+        cout << "Сумма кубов: " << SumOfCubes(a, b) << endl;
+    }
+    if (n == 5) {
+        cout << "Введите значение a и b: ";
+        cin >> a >> b;
+        cout << "Разность кубов: " << DifferenceOfCubes(a, b) << endl;
+    }
+    if (n == 6) {
+        cout << "Введите значение a и b: ";
+        cin >> a >> b;
+        cout << "Куб суммы: " << CubeOfSum(a, b) << endl;
+    }
+    if (n == 7) {
+        cout << "Введите значение a и b: ";
+        cin >> a >> b;
+        cout << "Куб разности: " << DifferenceCube(a, b) << endl;
+    }
+    if (n == 8) {
+        cout << "Введите стороны прямоугольника: ";
+        cin >> a >> b;
+        cout << "Площадь прямоугольника: " << AreaOfARectangle(a, b) << endl;
+    }
+    if (n == 9) {
+        cout << "Введите стороны треугольника: ";
+        cin >> a >> b;
+        cout << "Площадь треугольника: " << AreaOfATriangle(a, b) << endl;
+    }
+    if (n == 10) {
+        cout << "Введите радиус круга: ";
+        cin >> r;
+        cout << "Площадь круга: " << AreaOfACircle(r) << endl;
+    }
+    else {
+        cout << "Ошибка! Неверный выбор.\n";
+    }
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
